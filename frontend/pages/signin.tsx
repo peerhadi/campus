@@ -1,37 +1,38 @@
-import * as React from 'react'
-import Avatar from '@mui/material/Avatar'
-import Form from '../app/form/index'
-import CssBaseline from '@mui/material/CssBaseline'
-import Link from '@mui/material/Link'
-import Paper from '@mui/material/Paper'
-import { Button, Box } from '@mui/material'
-import Grid from '@mui/material/Grid'
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined'
-import Typography from '@mui/material/Typography'
-import { createTheme, ThemeProvider } from '@mui/material/styles'
-import Layout from '../Menu'
-import Copyright from '../Copyright'
-import SideBySideGrid from '../app/Grid/SBSG'
-import './App.css'
+import * as React from 'react';
+import Avatar from '@mui/material/Avatar';
+import Form from '../app/form/index';
+import CssBaseline from '@mui/material/CssBaseline';
+import Link from '@mui/material/Link';
+import Paper from '@mui/material/Paper';
+import { Button, Box } from '@mui/material';
+import Grid from '@mui/material/Grid';
+import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
+import Typography from '@mui/material/Typography';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import Layout from '../Menu';
+import Copyright from '../Copyright';
+import SideBySideGrid from '../app/Grid/SBSG';
+import './App.css';
 
-const defaultTheme = createTheme()
+const defaultTheme = createTheme();
 
 type LoginData = {
-    email: String
-    password: String
-    rememberMe: boolean
-}
+    email: String;
+    password: String;
+    rememberMe: boolean;
+};
 
 function initLoginData(): LoginData {
     return {
         email: '',
         password: '',
         rememberMe: false,
-    }
+    };
 }
 
 export default function SignInSide() {
-    const [loginData, setLoginData] = React.useState<LoginData>(initLoginData())
+    const [loginData, setLoginData] =
+        React.useState<LoginData>(initLoginData());
     const form = [
         {
             type: 'text',
@@ -50,13 +51,13 @@ export default function SignInSide() {
             label: 'Remember me',
             id: 'rememberMe',
         },
-    ]
+    ];
 
     const handleChange = (key: string, value: any) => {
-        setLoginData((loginData) => ({ ...loginData, [key]: value }))
-    }
+        setLoginData((loginData) => ({ ...loginData, [key]: value }));
+    };
 
-    console.log(loginData)
+    console.log(loginData);
 
     return (
         <ThemeProvider theme={defaultTheme}>
@@ -71,6 +72,7 @@ export default function SignInSide() {
                         flexDirection: 'column',
                         alignItems: 'center',
                         width: 500,
+                        height: 'calc(100vh - 64px)',
                     }}
                 >
                     <Avatar sx={{ m: 1, bgcolor: 'secondary.main' }}>
@@ -100,5 +102,5 @@ export default function SignInSide() {
                 </Box>
             </SideBySideGrid>
         </ThemeProvider>
-    )
+    );
 }
